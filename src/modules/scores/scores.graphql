@@ -1,0 +1,47 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Score {
+  scoreId: String!
+  userId: String
+  game: String!
+  score: Float!
+  createdAt: DateTime
+  updatedAt: DateTime
+}
+
+"""
+A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
+"""
+scalar DateTime
+
+type Query {
+  getAllScores: [Score!]!
+  getScoreById(id: String!): Score
+}
+
+type Mutation {
+  createScore(createScoreInput: CreateScoreInput!): Score!
+  updateScore(updateScoreInput: UpdateScoreInput!): Score!
+  deleteScore(id: String!): Boolean!
+}
+
+input CreateScoreInput {
+  """UserId (UUID)"""
+  userId: String!
+
+  """Name for the game"""
+  game: String!
+
+  """Score for the game"""
+  score: Float!
+}
+
+input UpdateScoreInput {
+  """Score ID (UUID)"""
+  scoreId: String
+
+  """Score update"""
+  score: Float!
+}
